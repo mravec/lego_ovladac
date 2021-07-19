@@ -78,14 +78,14 @@ joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P12, joystickbit.ButtonType
 	
 })
 function nastavit_rychlost () {
-    y_joystick = joystickbit.getRockerValue(joystickbit.rockerType.X)
+    y_joystick = joystickbit.getRockerValue(joystickbit.rockerType.Y)
     if (y_joystick > 600) {
-        rychlost += Math.map(0, 600, 1023, 0, 8)
+        rychlost += Math.map(y_joystick, 600, 1023, 0, 6)
         if (rychlost > 100) {
             rychlost = 100
         }
     } else if (y_joystick < 450) {
-        rychlost += Math.map(y_joystick, 0, 450, -8, 0)
+        rychlost += Math.map(y_joystick, 0, 450, -6, 0)
         if (rychlost < -100) {
             rychlost = -100
         }
