@@ -105,10 +105,9 @@ rychlost = 0
 kompas = input.compassHeading()
 aktualny_cas = 0
 basic.forever(function () {
-    let volant = 0
     nastavit_rychlost()
     nastavit_volant()
     radio.sendValue("v", rychlost)
-    radio.sendValue("o", volant)
+    radio.sendValue("k", kompas)
     basic.pause(100)
 })
