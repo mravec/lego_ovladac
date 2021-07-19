@@ -1,5 +1,5 @@
 {
-    "name": "ovladac",
+    "name": "ovladac_lego",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -15,6 +15,10 @@
     "testFiles": [
         "test.ts"
     ],
+    "targetVersions": {
+        "target": "4.0.9",
+        "targetId": "microbit"
+    },
     "supportedTargets": [
         "microbit"
     ],
