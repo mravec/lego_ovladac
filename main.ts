@@ -78,20 +78,20 @@ joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P12, joystickbit.ButtonType
 	
 })
 function nastavit_rychlost () {
-    yMikrobit = input.acceleration(Dimension.Y)
-    if (yMikrobit < -200) {
-        rychlost += Math.map(yMikrobit, -1100, -200, 8, 0)
+    y_joystick = joystickbit.getRockerValue(joystickbit.rockerType.X)
+    if (y_joystick > 600) {
+        rychlost += Math.map(0, 600, 1023, 0, 8)
         if (rychlost > 100) {
             rychlost = 100
         }
-    } else if (yMikrobit > 200) {
-        rychlost += Math.map(yMikrobit, 200, 1100, 0, -8)
+    } else if (y_joystick < 450) {
+        rychlost += Math.map(y_joystick, 0, 450, -8, 0)
         if (rychlost < -100) {
             rychlost = -100
         }
     }
 }
-let yMikrobit = 0
+let y_joystick = 0
 let kompas = 0
 let stary_cas = 0
 let aktualny_cas = 0
@@ -108,5 +108,6 @@ basic.forever(function () {
     nastavit_volant()
     radio.sendValue("v", rychlost)
     radio.sendValue("k", kompas)
+    vypis()
     basic.pause(100)
 })
