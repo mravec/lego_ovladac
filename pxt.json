@@ -1,5 +1,5 @@
 {
-    "name": "ovladac",
+    "name": "lego_ovladac",
     "description": "",
     "dependencies": {
         "core": "*",
