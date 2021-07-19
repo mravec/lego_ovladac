@@ -51,7 +51,6 @@ input.onButtonPressed(Button.B, function () {
 })
 function nastavit_volant () {
     kompas = input.compassHeading()
-    vypis()
 }
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     basic.showLeds(`
@@ -93,17 +92,17 @@ function nastavit_rychlost () {
     }
 }
 let yMikrobit = 0
+let kompas = 0
 let stary_cas = 0
 let aktualny_cas = 0
-let kompas = 0
 let rychlost = 0
 serial.redirectToUSB()
 joystickbit.initJoystickBit()
 radio.setGroup(1)
-basic.showIcon(IconNames.SmallSquare)
+radio.setTransmitPower(7)
 rychlost = 0
-kompas = input.compassHeading()
 aktualny_cas = 0
+basic.showIcon(IconNames.SmallSquare)
 basic.forever(function () {
     nastavit_rychlost()
     nastavit_volant()
